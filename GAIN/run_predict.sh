@@ -13,7 +13,7 @@ base_dir=${REPO}/../
 test_file=${DATA_DIR}/${LAN}_test.conll
 gazetteer_path=${base_dir}/gazetteer_demo/${LAN}
 
-model_file_path=${REPO}/output/ner_en/lightning_logs/version_4/checkpoints/ner_en_timestamp_1708356296.0393934_final.ckpt
+model_file_path=${REPO}/output/ner_en/lightning_logs/version_5/checkpoints/ner_en_timestamp_1710514359.5695827_final.ckpt
 
 python -m do_predict --test "$test_file" --gazetteer "$gazetteer_path" --out_dir "$OUT_DIR" --model_name "$model_name" --gpus 0 \
                                     --encoder_model "$ENCODER_MODEL" --model "$model_file_path" --batch_size 32

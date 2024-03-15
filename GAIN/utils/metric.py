@@ -125,4 +125,4 @@ def calculate_macro_f1(label_file, pred_file):
     span_f1(pred_result, label_result)
     word_result = span_f1.get_metric()
 
-    return word_result["macro@F1"]
+    return word_result
