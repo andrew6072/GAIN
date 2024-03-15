@@ -14,7 +14,8 @@ from utils.reader import CoNLLReader
 
 conll_iob = {'B-ORG': 0, 'I-ORG': 1, 'B-MISC': 2, 'I-MISC': 3, 'B-LOC': 4, 'I-LOC': 5, 'B-PER': 6, 'I-PER': 7, 'O': 8}
 wnut_iob = {'B-CORP': 0, 'I-CORP': 1, 'B-CW': 2, 'I-CW': 3, 'B-GRP': 4, 'I-GRP': 5, 'B-LOC': 6, 'I-LOC': 7, 'B-PER': 8, 'I-PER': 9, 'B-PROD': 10, 'I-PROD': 11, 'O': 12}
-
+vimq_iob = {'B-SYMPTOM_AND_DISEASE': 0, 'I-SYMPTOM_AND_DISEASE': 1, 'B-drug': 2, 'I-drug': 3, 'B-medical_procedure': 4, 'I-medical_procedure': 5, 'O': 6}
+rdrs_iob = {'B-Medication':0, 'I-Medication':1, 'B-Disease':2, 'I-Disease':3, 'B-Note':4, 'I-Note':5, 'B-ADR':6, 'I-ADR':7, 'O':8}
 
 def parse_args():
     p = argparse.ArgumentParser(description='Model configuration.', add_help=False)
@@ -48,7 +49,11 @@ def parse_args():
 def get_tagset(tagging_scheme):
     if 'conll' in tagging_scheme:
         return conll_iob
-    return wnut_iob
+    elif 'wnut' in tagging_scheme:
+        return wnut_iob
+    elif 'vimq' in tagging_scheme:
+        return vimq_iob
+    return rdrs_iob
 
 
 def get_out_filename(out_dir, model, prefix):

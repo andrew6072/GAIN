@@ -3,7 +3,7 @@ from typing import Set
 from overrides import overrides
 
 from allennlp.training.metrics.metric import Metric
-from reader_utils import get_ner_reader, extract_spans
+from .reader_utils import get_ner_reader, extract_spans
 
 class SpanF1(Metric):
     def __init__(self, non_entity_labels=['O']) -> None:

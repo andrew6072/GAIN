@@ -7,7 +7,7 @@ if __name__ == '__main__':
     sg = parse_args()
     out_dir_path = sg.out_dir + '/' + sg.model_name
 
-    torch.set_num_threads(3)
+    torch.set_num_threads(2)
 
     # load the dataset first
     train_data = get_reader(file_path=sg.train, target_vocab=get_tagset(sg.iob_tagging), encoder_model=sg.encoder_model,

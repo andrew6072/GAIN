@@ -5,7 +5,7 @@ REPO=$PWD
 
 LAN=${1:-"en"}
 ENCODER_MODEL=${2:-"xlm-roberta-large"}
-DATA_DIR=${3:-"$REPO/data/"}
+DATA_DIR=${3:-"$REPO/data/EN-English"}
 OUT_DIR=${4:-"$REPO/output/"}
 
 base_dir=${REPO}/../
@@ -15,5 +15,5 @@ gazetteer_path=${base_dir}/gazetteer_demo/${LAN}
 model_name="ner_${LAN}"
 
 python -m train_model --train "$train_file" --dev "$dev_file" --gazetteer "$gazetteer_path" --out_dir "$OUT_DIR" \
-                      --model_name "$model_name" --gpus 1 --epochs 20 --encoder_model "$ENCODER_MODEL" --batch_size 32 \
+                      --model_name "$model_name" --gpus 0 --epochs 1 --encoder_model "$ENCODER_MODEL" --batch_size 32 \
                       --lr 0.00002
